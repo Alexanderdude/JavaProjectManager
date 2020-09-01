@@ -1,0 +1,2 @@
+house Franz,988,house,7 alex rd,65538,999999,111111,23/09/2020
+House Franz,987,House,8 Saxon rd,7765,899,200,05/04/2020
