@@ -5,19 +5,19 @@ public class Project {
 	int proNum;
 	String buildType;
 	String address;
-	String ERFnum;
+	String erfNum;
 	int totalFee;
 	int totalFeeDue;
 	String proDeadline;
 	
-	public Project(String proName, int proNum,  String buildType, String address, String ERFnum,
+	public Project(String proName, int proNum,  String buildType, String address, String erfNum,
 			int totalFee, int totalFeeDue, String proDeadline) { //create constructor
 		
 		this.proName = proName;
 		this.proNum = proNum;
 		this.buildType = buildType;
 		this.address = address;
-		this.ERFnum = ERFnum;
+		this.erfNum = erfNum;
 		this.totalFee = totalFee;
 		this.totalFeeDue = totalFeeDue;
 		this.proDeadline = proDeadline;
@@ -31,7 +31,7 @@ public class Project {
 		output += "\nProject Number: " + proNum;
 		output += "\nType of building: " + buildType;
 		output += "\nPhysical Address: " + address;
-		output += "\nERF number : " + ERFnum;
+		output += "\nERF number : " + erfNum;
 		output += "\nTotal Fee: " + totalFee;
 		output += "\nTotal Fee still due: " + totalFeeDue;
 		output += "\nProjects Deadline: " + proDeadline;

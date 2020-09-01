@@ -8,15 +8,15 @@ public class capstoneProject {
 	
 	public static void main(String [] args) throws FileNotFoundException{
 		
-		Scanner Objec = new Scanner(System.in);  // Create a Scanner
+		Scanner objec = new Scanner(System.in);  // Create a Scanner
 		
 		System.out.println("What is the customers first name: ");
 		
-		String cusName = Objec.nextLine();
+		String cusName = objec.nextLine();
 		
 		System.out.println("What is the customers surname: ");
 		
-		String cusSurname = Objec.nextLine();
+		String cusSurname = objec.nextLine();
 		
 		cusName = cusName + " " + cusSurname;
 		
@@ -24,15 +24,15 @@ public class capstoneProject {
 		
         System.out.println("What is the customers telephone number: ");
 		
-		String cusTele = Objec.nextLine();
+		String cusTele = objec.nextLine();
 		
         System.out.println("What is the customers email address: ");
 		
-		String cusEmailaddress = Objec.nextLine();
+		String cusEmailaddress = objec.nextLine();
 		
         System.out.println("What is the customers physical address: ");
 		
-		String cusAddress = Objec.nextLine();
+		String cusAddress = objec.nextLine();
 		
 		person customer = new person(cusWorkType, cusName, cusTele, cusEmailaddress, cusAddress);  //creates the customer constructor
 		
@@ -41,36 +41,93 @@ public class capstoneProject {
 		
 		System.out.println("What is the project number: ");
 		
-		int proNum = Integer.parseInt(Objec.nextLine());
+		String line = objec.nextLine();
+		
+		try {  //makes sure it is a valid integer
+	
+		    int proNum = Integer.parseInt(line);
+		
+		}
+		
+		catch(Exception e) {
+			
+			System.out.println("Not a valid integer.Please enter a valid project number: ");  //throws exception
+			
+			line = objec.nextLine();
+			
+			int proNum = Integer.parseInt(line);
+		}
+		
+		int proNum = Integer.parseInt(line);
+		
 		
         System.out.println("What is the building type: ");
 		
-		String buildType = Objec.nextLine();
+		String buildType = objec.nextLine();
 		
 		String proName = buildType + " " + cusSurname;
 		
         System.out.println("What is the physical address: ");
 		
-		String address = Objec.nextLine();
+		String address = objec.nextLine();
 		
         System.out.println("What is the ERF number: ");
 		
-		String ERFnum = Objec.nextLine();
+		String erfNum = objec.nextLine();
 		
         System.out.println("What is the total Fee for the project: ");
-		
-		int totalFee = Integer.parseInt(Objec.nextLine());
+        
+        line = objec.nextLine();
+        
+        try {  //checks for a valid integer
+			
+        	int totalFee = Integer.parseInt(line);
+    		
+    	}
+    		
+    	catch(Exception e) {
+    			
+    		System.out.println("Not a valid integer. Please enter the total fee of the project: ");
+    		
+    		line = objec.nextLine();
+    		
+    		int totalFee = Integer.parseInt(line);
+    		
+
+    	}
+        
+        int totalFee = Integer.parseInt(line);
 		
         System.out.println("What is the total fee due: ");
+        
+        line = objec.nextLine();
+        
+        try { //checks for a valid integer
+        	
+        	
+        	int totalFeeDue = Integer.parseInt(line);
+    		
+    	}
+    		
+    	catch(Exception e) {
+    			
+    		System.out.println("Not a valid integer. Please enter the total fee due: ");
+    		
+    		line = objec.nextLine();
+    		
+    		int totalFeeDue = Integer.parseInt(line);
+    		
+    	}
 		
-		int totalFeeDue = Integer.parseInt(Objec.nextLine());
+		int totalFeeDue = Integer.parseInt(line);
 		
         System.out.println("What is the projects deadline: ");
 		
-		String proDeadline = Objec.nextLine();
+		String proDeadline = objec.nextLine();
 		
 		
-		String line = "";
+		
+		line = "";
 		
 		boolean bStop = true;
 		
@@ -84,7 +141,7 @@ public class capstoneProject {
 			
 			System.out.println("The physical address is " + address);
 			
-			System.out.println("The ERF number is " + ERFnum);
+			System.out.println("The ERF number is " + erfNum);
 			
 			System.out.println("The total Fee of the project is R" + totalFee);
 			
@@ -95,7 +152,7 @@ public class capstoneProject {
 		
 	    	System.out.println("\nIs this the correct information? ('no' or 'yes')");  //checks if the user wants to change any information
 		    
-	    	line = Objec.nextLine();
+	    	line = objec.nextLine();
 	    	
 	    	if (line.equals("yes")) {
 	    		
@@ -106,60 +163,59 @@ public class capstoneProject {
 			
 	    		System.out.println("Do you want to change the deadline of the project?");  //change deadline?
 	    		
-	    		line = Objec.nextLine();
+	    		line = objec.nextLine();
 			
 	    		if (line.equals("yes")) {
 				
 	    			System.out.println("What is the new deadline?") ;
 				
-		    		proDeadline = Objec.nextLine();
+		    		proDeadline = objec.nextLine();
 				
 		    	}
 			
 		    	System.out.println("Do you want to change the total Fee Due of the project?"); //change the fee due
 		    	
-		    	line = Objec.nextLine();
+		    	line = objec.nextLine();
 			
 		    	if (line.equals("yes")) {
 				
 		    		System.out.println("What is the new total fee due?") ;
 				
-		    		totalFeeDue = Integer.parseInt(Objec.nextLine());
+		    		totalFeeDue = Integer.parseInt(objec.nextLine());
 				
 		    	}
 		    	
 	    	}
 	    	
-		}
-	    	
-	    		
+		}	
+		
+		
 			
-			
-	    Project project = new Project(proName, proNum, buildType, address, ERFnum, totalFee, totalFeeDue, proDeadline);  //creates the project constructor
+	    Project project = new Project(proName, proNum, buildType, address, erfNum, totalFee, totalFeeDue, proDeadline);  //creates the project constructor
 	    
 	    System.out.println("\n\nWhat person do you want to add to the project");
 	    
 	    System.out.println("What is the work type :");
 	    
-	    String workType = Objec.nextLine();
+	    String workType = objec.nextLine();
 	    
         System.out.println("What is the name :");
 	    
-	    String name = Objec.nextLine();
+	    String name = objec.nextLine();
 	    
         System.out.println("What is the phone number :");
 	    
-	    String telephone = Objec.nextLine();
+	    String telephone = objec.nextLine();
 	    
         System.out.println("What is the email address :");
 	    
-	    String email = Objec.nextLine();
+	    String email = objec.nextLine();
 	    
         System.out.println("What is the physical address :");
 	    
-	    String Paddress = Objec.nextLine();
+	    String pAddress = objec.nextLine();
 	    
-	    person person = new person(workType, name, telephone, email, Paddress);  //adds a person to this project.
+	    person person = new person(workType, name, telephone, email, pAddress);  //adds a person to this project.
 	    
 	    
 	    
@@ -177,31 +233,31 @@ public class capstoneProject {
 	    
 	    if (totalFeeDue == 0) {  //checks if the customer has finished paying
 	    	
-	    	Formatter T = new Formatter("finalised.txt");  //creates a textfile
+	    	Formatter textFile = new Formatter("finalised.txt");  //creates a textfile
 	    	
 	    	Date today = Calendar.getInstance().getTime();
 	    	
-	    	T.format("Time finished: " + today);
-	    	T.format("\n\n");
-	    	T.format(customer.toString());
-	    	T.format("\n\n"); 
-	    	T.format(project.toString());
-	    	T.format("\n\n"); 
-	    	T.format(person.toString());
-	    	T.close();
+	    	textFile.format("Time finished: " + today);
+	    	textFile.format("\n\n");
+	    	textFile.format(customer.toString());
+	    	textFile.format("\n\n"); 
+	    	textFile.format(project.toString());
+	    	textFile.format("\n\n"); 
+	    	textFile.format(person.toString());
+	    	textFile.close();
 
 	    }
 	    
         if (totalFeeDue > 0) { //if the customer has not payed the full amount
 	    	
-	    	Formatter T = new Formatter("invoice.txt");  //creates a textfile
+	    	Formatter textFile = new Formatter("invoice.txt");  //creates a textfile
 	    
-	    	T.format(customer.toString());
+	    	textFile.format(customer.toString());
 	    	
-	    	T.format("\n\n");
+	    	textFile.format("\n\n");
 	    	
-	    	T.format("You still have to pay" + Integer.toString(project.totalFeeDue));
-	    	T.close();
+	    	textFile.format("You still have to pay" + Integer.toString(project.totalFeeDue));
+	    	textFile.close();
 	    	
 
 	    }
